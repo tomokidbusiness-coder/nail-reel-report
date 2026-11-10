@@ -3,10 +3,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
 <style>
-/* Layout: 縦一列の読み物。結論 → 9店の比較(表+対数チャート) → 1本ずつの解剖 → 伸びない例 → 型 → 真似の手順 */
+/* Layout: 結論 → 数字で見る全体像 → 跳ねた上位の表 → 1本ずつの解剖 → 型 → ジャンル比較 → 真似の手順 → 調べ方 */
 :root{
   --bg:#f7f6f3; --surface:#ffffff; --ink:#1f2128; --muted:#5f6370; --line:#e2e0da;
-  --ai:#a3456a;        /* ローズ: ネイルの色 */
+  --ai:#a3456a;
   --karashi:#c9921e;
   --warn:#b4432f; --warn-bg:#fbede9;
   --gray-bg:#efeeea;
@@ -77,150 +77,109 @@ td.note{text-align:left;white-space:normal;color:var(--muted);font-size:14px;min
 .method{font-size:14.5px;color:var(--muted);display:grid;gap:6px;padding-left:1.1em;margin:0}
 a{color:var(--ai)}
 a:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
-</style>
 
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:2px}
+.kpi span{font-size:12.5px;color:var(--muted)}
+.kpi strong{font-family:var(--f-num);font-size:24px;font-weight:700;color:var(--ai);line-height:1.3}
+.kpi small{font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cmp td:first-child{white-space:normal}
+.cmp tr.me td{background:color-mix(in srgb,var(--ai) 9%,transparent);font-weight:500}
+.nav{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px}
+</style>
 <div class="wrap">
 
 <header style="display:grid;gap:14px">
+  <nav class="nav" aria-label="ほかのジャンル"><a href="https://tomokidbusiness-coder.github.io/kojinten-reel-report/">飲食の個人店</a><span>ネイルサロン</span><a href="https://tomokidbusiness-coder.github.io/beauty-salon-reel-report/">美肌・スキンケア</a><a href="https://tomokidbusiness-coder.github.io/eyelash-reel-report/">まつ毛・眉</a></nav>
   <div class="eyebrow">Instagram リール調査 · ネイルサロン編 · 2026年11月10日時点</div>
-  <h1>フォロワー数百人のネイルサロンが、<br>数万回届いたリールを解剖する</h1>
-  <p class="lede">自宅サロンやプライベートサロンなど、個人で営むネイルサロン9つのアカウントを調べました。各サロンの「いつもの再生数」から大きく跳ねたリールを開いて、何が違ったのかを見ています。</p>
+  <h1>ネイルサロン61店の、<br>伸びたリールを解剖する</h1>
+  <p class="lede">自宅サロンやプライベートサロンなど、個人で営むネイルサロン61店のリールを調べました。前回の9店から約7倍に増やしています。各サロンの「いつもの再生数」から大きく跳ねたリールを開いて、何が違ったのかを見ています。</p>
 </header>
 
 <section>
   <h2><small>SUMMARY</small>先に結論</h2>
-  <ol class="points">
-    <li><p><b>大きく跳ねたリールの多くは「宣伝型」でした。</b>5つのサロンで、いつもの10〜60倍に跳ねたリールがありました。どれも地域名やメニュー価格、初回割引を前面に出していて、いいね率は0.05〜0.3%と極端に低めです。Instagramの「宣伝する」(有料配信)を使った可能性が高いと考えています。ただし、画面からは確定できません。</p></li>
-    <li><p><b>広告に乗せる動画は「どこの」「誰向け」を最初に出していました。</b>「戸塚区汲沢・戸塚高校そば」「川崎市中原区 大人女性のためのシンプル専門」「いつものネイルに飽きちゃった人」など、最初の1秒で見る人を絞っています。</p></li>
-    <li><p><b>自然に伸びたリールは、キラキラの手元と流行りの曲、サロンの日常でした。</b>ただし跳ね幅は2〜6倍ほどと控えめです。ネイルは「デザインを見せるだけ」だと、ほかのサロンの投稿に埋もれやすいジャンルです。</p></li>
-  </ol>
+  <ol class="points"><li><p><b>3割強のサロンに、いつもの5倍以上に跳ねたリールがありました。</b>61店のうち21店です。ただし、いつもの再生数の中央値は約960回で、飲食の半分以下です。</p></li><li><p><b>数十万回まで自然に伸びたのは「お役立ち」と「流行りの曲×キラキラ」でした。</b>「ネイルの写真が可愛く撮れない方必見」は61.6万回でいいね率1.1%。マグネットネイルにILLITの「Magnetic」を合わせたリールは38.7万回でいいね率1.6%です。</p></li><li><p><b>前回見えた「宣伝型」は、数を増やしても多く見つかりました。</b>駅からの距離、価格、初回割引、オープン告知、求人を前面に出したリールが、いつもの20〜60倍に跳ねていて、いいね率は0.1〜0.5%と低めです。</p></li></ol>
 </section>
 
-<section>
-  <h2><small>OVERVIEW</small>9サロンの比較</h2>
-  <p class="lede">「いつもの再生数」は、リール一覧の直近12本の中央値です。「跳ね幅」は最高再生数がその何倍か、「フォロワー比」は最高再生数がフォロワー数の何倍かを表します。</p>
-  <div class="tbl">
-  <table>
-    <thead><tr><th>サロン</th><th>フォロワー</th><th>いつもの再生数</th><th>最高再生数</th><th>跳ね幅</th><th>フォロワー比</th><th>メモ</th></tr></thead>
-    <tbody id="acct-rows"></tbody>
-  </table>
-  </div>
-  <div class="chart" role="img" aria-label="サロン別、最高再生数がいつもの何倍だったか(対数目盛)">
-    <svg id="mult" viewBox="0 0 640 360"></svg>
-  </div>
-  <p class="caption">横軸は対数目盛です(1倍、10倍、100倍が等間隔)。濃い色の棒は、跳ね幅が5倍以上のサロンです。</p>
+<section style="display:grid;gap:16px">
+  <h2><small>NUMBERS</small>61アカウントの全体像</h2>
+  <div class="kpis">
+  <div class="kpi"><span>調べたアカウント</span><strong>61件</strong><small>リール6本以上</small></div>
+  <div class="kpi"><span>フォロワー数(中央値)</span><strong>817人</strong><small>真ん中のアカウント</small></div>
+  <div class="kpi"><span>いつもの再生数(中央値)</span><strong>960回</strong><small>直近12本の中央値</small></div>
+  <div class="kpi"><span>5倍以上に跳ねた</span><strong>34%</strong><small>21件 / 10倍以上は12件</small></div>
+</div>
+  <div class="chart"><svg viewBox="0 0 640 274" role="img" aria-label="跳ね幅ごとのアカウント数"><rect x="40" y="24.0" width="80" height="200.0" rx="3" fill="var(--muted)" opacity=".45"/><text x="80.0" y="18.0" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="Noto Sans JP, sans-serif">18件</text><text x="80.0" y="244" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">2倍未満</text><rect x="136" y="124.0" width="80" height="100.0" rx="3" fill="var(--muted)" opacity=".45"/><text x="176.0" y="118.0" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="Noto Sans JP, sans-serif">9件</text><text x="176.0" y="244" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">2〜3倍</text><rect x="232" y="79.6" width="80" height="144.4" rx="3" fill="var(--muted)" opacity=".45"/><text x="272.0" y="73.6" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="Noto Sans JP, sans-serif">13件</text><text x="272.0" y="244" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">3〜5倍</text><rect x="328" y="124.0" width="80" height="100.0" rx="3" fill="var(--ai)" opacity=".9"/><text x="368.0" y="118.0" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="Noto Sans JP, sans-serif">9件</text><text x="368.0" y="244" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">5〜10倍</text><rect x="424" y="157.3" width="80" height="66.7" rx="3" fill="var(--ai)" opacity=".9"/><text x="464.0" y="151.3" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="Noto Sans JP, sans-serif">6件</text><text x="464.0" y="244" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">10〜30倍</text><rect x="520" y="157.3" width="80" height="66.7" rx="3" fill="var(--ai)" opacity=".9"/><text x="560.0" y="151.3" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="Noto Sans JP, sans-serif">6件</text><text x="560.0" y="244" text-anchor="middle" font-size="13" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">30倍以上</text><line x1="34" x2="606" y1="224" y2="224" stroke="var(--line)"/><text x="40" y="266" font-size="12.5" fill="var(--muted)" font-family="Noto Sans JP, sans-serif">濃い色 = いつもの5倍以上に跳ねたリールがあるアカウント</text></svg></div>
+  <p class="caption">「跳ね幅」は、直近12〜15本のリールの中で一番再生されたものが、いつもの再生数(中央値)の何倍だったかです。30倍以上に跳ねたサロンが6店あり、そのうち4店は宣伝型と思われるリールでした。</p>
 </section>
 
-<section>
+<section style="display:grid;gap:16px">
+  <h2><small>TOP 15</small>大きく跳ねたアカウント</h2>
+  <p class="lede">跳ね幅の大きい順です。最高再生数をクリックすると、そのリールが開きます。メモは、実際にリールを開いて確認した内容です。</p>
+  <div class="tbl"><table><thead><tr><th>アカウント</th><th>フォロワー</th><th>いつもの再生数</th><th>最高再生数</th><th>跳ね幅</th><th>フォロワー比</th><th>メモ</th></tr></thead><tbody><tr><td><a href="https://www.instagram.com/nail.iku/" target="_blank" rel="noopener">@nail.iku</a></td><td class="num">1,904</td><td class="num">約4,327</td><td class="num"><a href="https://www.instagram.com/reel/DBBVBwPyOXn/" target="_blank" rel="noopener">61.6万</a></td><td class="num"><b>142倍</b></td><td class="num">324倍</td><td class="note"><span class="chip ok">お役立ち</span> ネイル写真の撮り方。いいね率1.1%</td></tr><tr><td><a href="https://www.instagram.com/emi_noranail/" target="_blank" rel="noopener">@emi_noranail</a></td><td class="num">2,761</td><td class="num">約3,453</td><td class="num"><a href="https://www.instagram.com/reel/C8eZPazvbxl/" target="_blank" rel="noopener">38.7万</a></td><td class="num"><b>112倍</b></td><td class="num">140倍</td><td class="note"><span class="chip ok">流行りの曲</span> マグネット×「Magnetic」。いいね率1.6%</td></tr><tr><td><a href="https://www.instagram.com/guttinail_kawasaki/" target="_blank" rel="noopener">@guttinail_kawasaki</a></td><td class="num">2,240</td><td class="num">約956</td><td class="num"><a href="https://www.instagram.com/reel/DZ7W9O8TX8O/" target="_blank" rel="noopener">5.9万</a></td><td class="num"><b>62倍</b></td><td class="num">26倍</td><td class="note"><span class="chip warn">宣伝型</span> 初回割引の文面</td></tr><tr><td><a href="https://www.instagram.com/cherine_nail/" target="_blank" rel="noopener">@cherine_nail</a></td><td class="num">271</td><td class="num">約289</td><td class="num"><a href="https://www.instagram.com/reel/DeejGX2tL7M/" target="_blank" rel="noopener">1.4万</a></td><td class="num"><b>48倍</b></td><td class="num">52倍</td><td class="note"><span class="chip warn">宣伝型</span> 「町田駅から徒歩6分」</td></tr><tr><td><a href="https://www.instagram.com/masako__momo.nail/" target="_blank" rel="noopener">@masako__momo.nail</a></td><td class="num">709</td><td class="num">約1,509</td><td class="num"><a href="https://www.instagram.com/reel/DNAsCLpJE0f/" target="_blank" rel="noopener">6万</a></td><td class="num"><b>40倍</b></td><td class="num">85倍</td><td class="note"><span class="chip warn">宣伝型</span> 地名と定額価格</td></tr><tr><td><a href="https://www.instagram.com/bio_nail_/" target="_blank" rel="noopener">@bio_nail_</a></td><td class="num">293</td><td class="num">約684</td><td class="num"><a href="https://www.instagram.com/reel/DP_C6eeESbq/" target="_blank" rel="noopener">2.1万</a></td><td class="num"><b>31倍</b></td><td class="num">72倍</td><td class="note"><span class="chip warn">宣伝型</span> コース名と価格だけ</td></tr><tr><td><a href="https://www.instagram.com/rurunnail/" target="_blank" rel="noopener">@rurunnail</a></td><td class="num">8,365</td><td class="num">約8,290</td><td class="num"><a href="https://www.instagram.com/reel/DaU6cVcPmFL/" target="_blank" rel="noopener">23.2万</a></td><td class="num"><b>28倍</b></td><td class="num">28倍</td><td class="note"><span class="chip ok">ストーリー</span> 「わたしのネイルの経歴」</td></tr><tr><td><a href="https://www.instagram.com/beauty_salon_3.5.8/" target="_blank" rel="noopener">@beauty_salon_3.5.8</a></td><td class="num">4,765</td><td class="num">約2,742</td><td class="num"><a href="https://www.instagram.com/reel/DdOgh8RRe18/" target="_blank" rel="noopener">7.4万</a></td><td class="num"><b>27倍</b></td><td class="num">16倍</td><td class="note"><span class="chip warn">求人</span> 「ネイリスト大募集」</td></tr><tr><td><a href="https://www.instagram.com/nail.e.0912/" target="_blank" rel="noopener">@nail.e.0912</a></td><td class="num">1,274</td><td class="num">約851</td><td class="num"><a href="https://www.instagram.com/reel/C9FKlTcJSnI/" target="_blank" rel="noopener">1.8万</a></td><td class="num"><b>21倍</b></td><td class="num">14倍</td><td class="note"><span class="chip warn">オープン告知</span> 駅からの道順</td></tr><tr><td><a href="https://www.instagram.com/sakurasan.nail__/" target="_blank" rel="noopener">@sakurasan.nail__</a></td><td class="num">788</td><td class="num">約769</td><td class="num"><a href="https://www.instagram.com/reel/CzGcIcSv9LN/" target="_blank" rel="noopener">1万</a></td><td class="num"><b>13倍</b></td><td class="num">13倍</td><td class="note"><span class="chip ok">サンプルチップ</span></td></tr><tr><td><a href="https://www.instagram.com/tumehapi11/" target="_blank" rel="noopener">@tumehapi11</a></td><td class="num">159</td><td class="num">約308</td><td class="num"><a href="https://www.instagram.com/reel/DSeqhSQknAL/" target="_blank" rel="noopener">3,965</a></td><td class="num"><b>13倍</b></td><td class="num">25倍</td><td class="note"><span class="chip ok">深爪のお悩み</span></td></tr><tr><td><a href="https://www.instagram.com/locanail_kasumi/" target="_blank" rel="noopener">@locanail_kasumi</a></td><td class="num">251</td><td class="num">約348</td><td class="num"><a href="https://www.instagram.com/reel/DbcMOgKojjf/" target="_blank" rel="noopener">3,748</a></td><td class="num"><b>11倍</b></td><td class="num">15倍</td><td class="note"><span class="chip ok">お悩み</span> 「浮きにくく、長く」</td></tr><tr><td><a href="https://www.instagram.com/nailsaron_coreth/" target="_blank" rel="noopener">@nailsaron_coreth</a></td><td class="num">909</td><td class="num">約1,748</td><td class="num"><a href="https://www.instagram.com/reel/DdeMkD3pSPj/" target="_blank" rel="noopener">1.6万</a></td><td class="num"><b>9.2倍</b></td><td class="num">18倍</td><td class="note"></td></tr><tr><td><a href="https://www.instagram.com/keeth_nana/" target="_blank" rel="noopener">@keeth_nana</a></td><td class="num">3,514</td><td class="num">約1,749</td><td class="num"><a href="https://www.instagram.com/reel/DWlcPSPk0B4/" target="_blank" rel="noopener">1.6万</a></td><td class="num"><b>9.1倍</b></td><td class="num">4.6倍</td><td class="note"></td></tr><tr><td><a href="https://www.instagram.com/actuel_nail/" target="_blank" rel="noopener">@actuel_nail</a></td><td class="num">1,368</td><td class="num">約1,486</td><td class="num"><a href="https://www.instagram.com/reel/DfeOVMViXcO/" target="_blank" rel="noopener">1.1万</a></td><td class="num"><b>7.4倍</b></td><td class="num">8.0倍</td><td class="note"></td></tr></tbody></table></div>
+</section>
+
+<section style="display:grid;gap:16px">
   <h2><small>CASES</small>伸びたリール、一本ずつ</h2>
-  <p class="lede">いいね率は「いいね数÷再生数」です。前回調べた個人飲食店は0.2〜2%でした。ネイルサロンの大きく跳ねたリールは、それよりさらに低い0.05〜0.3%に集中しています。</p>
-  <div class="reels" id="reels"></div>
+  <p class="lede">いいね率は「いいね数÷再生数」です。自然に伸びたと思われるリールは0.5〜1.6%、宣伝型と思われるリールは0.1〜0.5%に分かれました。</p>
+  <div class="reels"><article class="reel ">
+  <div class="reel-head"><h3>「ネイルの写真可愛く撮れなくて困ってる方必見！」</h3><span class="meta">@nail.iku · 2024年10月12日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>61.6万</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>142倍</strong></div><div class="stat"><span>いいね</span><strong>6,881</strong></div><div class="stat"><span>いいね率</span><strong>1.12%</strong></div></div>
+  <ul class="why"><li>ネイルそのものではなく「ネイルの写真の撮り方」を教えるリール。サロンに来たことがない人にも役に立つ。</li><li>「ちょっとのコツで可愛く撮れる」「他にも色々小技があるんですが、知りたいですか？」と、続きを見たくなる終わり方。</li><li>フォロワー1,904人で61.6万回。今回のネイルで一番の再生数。</li></ul>
+  <div class="tags"><span class="tag">お役立ち</span><span class="tag">呼びかけ</span><span class="tag">保存したくなる</span><a href="https://www.instagram.com/reel/DBBVBwPyOXn/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article><article class="reel ">
+  <div class="reel-head"><h3>「ぷるまぐ」マグネットネイル × ILLIT「Magnetic」</h3><span class="meta">@emi_noranail · 2024年6月21日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>38.7万</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>112倍</strong></div><div class="stat"><span>いいね</span><strong>6,148</strong></div><div class="stat"><span>いいね率</span><strong>1.59%</strong></div></div>
+  <ul class="why"><li>光るマグネットネイルに、曲名がそのまま「Magnetic」の流行り曲を合わせている。</li><li>キャプションは「ぷるまぐ🩵 初回¥8415」だけ。動画の見た目と曲で勝負している。</li><li>いいね率1.6%は、今回のネイルで一番高い。</li></ul>
+  <div class="tags"><span class="tag">キラキラ手元</span><span class="tag">流行りの曲</span><span class="tag">曲名と掛ける</span><a href="https://www.instagram.com/reel/C8eZPazvbxl/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article><article class="reel ">
+  <div class="reel-head"><h3>「わたしのネイルの経歴！」</h3><span class="meta">@rurunnail · 2026年7月3日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>23.2万</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>28倍</strong></div><div class="stat"><span>いいね</span><strong>917</strong></div><div class="stat"><span>いいね率</span><strong>0.40%</strong></div></div>
+  <ul class="why"><li>「無資格未経験で自宅サロン開始」「独学で資格習得」と、ネイリスト本人の歩みを時系列で見せている。</li><li>曲はback numberの「どうしてもどうしても」。</li><li>デザインではなく人を見せたリールが、いつもの28倍になった。</li></ul>
+  <div class="tags"><span class="tag">ストーリー</span><span class="tag">人柄</span><a href="https://www.instagram.com/reel/DaU6cVcPmFL/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article><article class="reel special">
+  <div class="reel-head"><h3>「いつものネイルに飽きちゃった人」+ 初回割引</h3><span class="meta">@guttinail_kawasaki · 2026年6月23日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>5.9万</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>62倍</strong></div><div class="stat"><span>いいね</span><strong>133</strong></div><div class="stat"><span>いいね率</span><strong>0.23%</strong></div></div>
+  <ul class="why"><li>光るマグネットの指先に「いつものネイルに飽きちゃった人」のテロップ。</li><li>キャプションは「この動画を見た方限定 通常11,200円が初回7,600円」。広告用の文面そのもの。</li><li>いいね率0.23%。前回の調査から引き続き、宣伝型の代表例。</li></ul>
+  <div class="tags"><span class="chip warn">宣伝型の可能性</span><span class="tag">呼びかけ</span><span class="tag">初回割引</span><a href="https://www.instagram.com/reel/DZ7W9O8TX8O/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article><article class="reel special">
+  <div class="reel-head"><h3>「町田駅から徒歩6分」の半個室サロン</h3><span class="meta">@cherine_nail · 2026年10月14日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>1.4万</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>48倍</strong></div><div class="stat"><span>いいね</span><strong>21</strong></div><div class="stat"><span>いいね率</span><strong>0.15%</strong></div></div>
+  <ul class="why"><li>駅からの距離と、レースに包まれた半個室の空間を紹介している。</li><li>いつもの約290回から1.4万回へ、48倍。いいね率は0.15%。</li><li>近くに住む人に向けて広告で届けた可能性が高い。</li></ul>
+  <div class="tags"><span class="chip warn">宣伝型の可能性</span><span class="tag">地名</span><span class="tag">空間</span><a href="https://www.instagram.com/reel/DeejGX2tL7M/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article><article class="reel special">
+  <div class="reel-head"><h3>「ネイリスト大募集」の求人リール</h3><span class="meta">@beauty_salon_3.5.8 · 2026年9月13日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>7.4万</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>27倍</strong></div><div class="stat"><span>いいね</span><strong>356</strong></div><div class="stat"><span>いいね率</span><strong>0.48%</strong></div></div>
+  <ul class="why"><li>お客さんではなく、働く人を集めるためのリール。</li><li>7.4万回で、いつもの27倍。求人のために広告を使うサロンもある。</li><li>「伸びたリール」を見るときは、何のための投稿かを分けて考える必要がある。</li></ul>
+  <div class="tags"><span class="chip warn">宣伝型の可能性</span><span class="tag">求人</span><a href="https://www.instagram.com/reel/DdOgh8RRe18/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article><article class="reel ">
+  <div class="reel-head"><h3>深爪・巻き爪に悩む人へ、サロンの中を見せる</h3><span class="meta">@tumehapi11 · 2025年12月20日</span></div>
+  <div class="stats"><div class="stat"><span>再生</span><strong>3,965</strong></div><div class="stat hl"><span>いつもの何倍</span><strong>13倍</strong></div><div class="stat"><span>いいね</span><strong>19</strong></div><div class="stat"><span>いいね率</span><strong>0.48%</strong></div></div>
+  <ul class="why"><li>キャプションは「爪に悩んできたすべての方へ」。深爪、噛み爪、巻き爪と、悩みの名前をはっきり書いている。</li><li>フォロワー159人のサロンで、いつもの13倍。</li><li>悩みに絞った専門サロンは、刺さる人が明確。</li></ul>
+  <div class="tags"><span class="tag">お悩み</span><span class="tag">専門性</span><a href="https://www.instagram.com/reel/DSeqhSQknAL/" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
+</article></div>
 </section>
 
-<section>
-  <h2><small>PATTERNS</small>ネイルサロンで伸びた「型」</h2>
-  <div class="types">
-    <div class="type"><h3>地域名を最初に出す</h3><p>動画の1枚目に「戸塚区汲沢」「川崎市中原区」と地名を大きく出す。近くに住む人が「自分のことだ」と止まります。広告で配信するときに特に効く作りです。</p><p class="ex">momo.nail 6万回 / m.nail 1.7万回</p></div>
-    <div class="type"><h3>「〇〇な人」と呼びかける</h3><p>「いつものネイルに飽きちゃった人」「派手なネイルは苦手」「深爪に悩む方」。見る人を絞るほど、当てはまる人は最後まで見ます。</p><p class="ex">Guttinail 5.9万回 / tumehapi 3,961回</p></div>
-    <div class="type"><h3>キラキラの手元と流行りの曲</h3><p>パウダーやストーンが光る指先を、手を動かしながら寄りで撮る。ネイルの一番の見せ場がそのまま映ります。</p><p class="ex">Rommy 6,587回(いいね率0.67%)</p></div>
-    <div class="type"><h3>サロンの日常を見せる</h3><p>施術中の様子や1周年のくじ引きなど、ネイリストの人柄が伝わる動画。デザイン写真より「この人にお願いしたい」が伝わります。</p><p class="ex">mone. 3,048回(フォロワーの19倍)</p></div>
-    <div class="type no"><h3>伸びない型: 仕上がり写真だけ</h3><p>完成したネイルを並べるだけのリールは、多くのサロンで数百回どまりでした。同じようなデザイン投稿が多く、知らない人が止まる理由になりにくいためです。</p><p class="ex">heal 最高397回(いつもの2.6倍)</p></div>
-  </div>
+<section style="display:grid;gap:16px">
+  <h2><small>PATTERNS</small>ネイルサロンで跳ねた「型」</h2>
+  <div class="types"><div class="type"><h3>お役立ちで「ネイルの外」まで届ける</h3><p>撮り方、長持ちのコツ、セルフケアなど、サロンに来たことがない人にも役立つ内容。保存やシェアで広がります。</p><p class="ex">nail.iku 61.6万回</p></div><div class="type"><h3>流行りの曲 × キラキラの手元</h3><p>マグネットやパウダーが光る指先を動かして撮り、曲名やリズムとデザインを合わせる。</p><p class="ex">emi_noranail 38.7万回</p></div><div class="type"><h3>ネイリスト本人のストーリー</h3><p>開業までの経歴や、日々のサロンワーク。デザインより「この人にお願いしたい」が伝わります。</p><p class="ex">rurunnail 23.2万回</p></div><div class="type"><h3>悩みの名前を出す</h3><p>深爪、浮きやすい、長持ちしないなど、悩みをはっきり書くと、当てはまる人が止まります。</p><p class="ex">tumehapi 3,965回(いつもの13倍)</p></div><div class="type no"><h3>宣伝型: 地名・価格・初回割引</h3><p>駅からの距離、価格、初回割引、オープン、求人。大きく跳ねても、いいね率はかなり低い。広告で届けた可能性が高い型です。</p><p class="ex">Guttinail 5.9万回 / cherine 1.4万回</p></div></div>
 </section>
 
-<section>
-  <h2><small>VS RESTAURANTS</small>飲食の個人店との違い</h2>
-  <div class="compare">
-    <div><h3>飲食の個人店</h3><p>共同投稿や「知ってた?」の一言など、お金をかけずに自然に伸びたリールが目立った。いいね率は0.2〜2%。</p></div>
-    <div><h3>ネイルサロン</h3><p>大きく跳ねたリールの多くが、宣伝型の文面で、いいね率もかなり低い。近所の新規客を集めるために、少額の広告を使っているサロンが多いと考えられる。</p></div>
-  </div>
+<section style="display:grid;gap:16px">
+  <h2><small>COMPARE</small>4ジャンルを並べると</h2>
+  <div class="tbl"><table class="cmp"><thead><tr><th>ジャンル</th><th>件数</th><th>フォロワー中央値</th><th>いつもの再生数</th><th>5倍以上</th><th>10倍以上</th></tr></thead><tbody><tr class=""><td>飲食の個人店</td><td class="num">48</td><td class="num">1,666</td><td class="num">2,228</td><td class="num">40%</td><td class="num">27%</td></tr><tr class="me"><td>ネイルサロン</td><td class="num">61</td><td class="num">817</td><td class="num">960</td><td class="num">34%</td><td class="num">20%</td></tr><tr class=""><td>美肌・スキンケアサロン</td><td class="num">52</td><td class="num">916</td><td class="num">728</td><td class="num">40%</td><td class="num">23%</td></tr><tr class=""><td>まつ毛・眉サロン</td><td class="num">80</td><td class="num">589</td><td class="num">1,038</td><td class="num">39%</td><td class="num">19%</td></tr></tbody></table></div>
+  <p class="caption">ネイルは「いつもの再生数」が4ジャンルで2番目に低く、自然に伸びる型と宣伝型がはっきり分かれました。</p>
 </section>
 
-<section>
+<section style="display:grid;gap:16px">
   <h2><small>NEXT STEP</small>明日から真似するなら</h2>
-  <ul class="todo">
-    <li><b>① 1枚目に「地名」と「誰向けか」を大きく入れる</b>例:「〇〇駅徒歩3分」「短い爪でも映えるネイル」。広告を使うかどうかに関係なく効きます。</li>
-    <li><b>② 光るネイルは、手を動かしながら寄りで撮る</b>マグネットやパウダーは、写真より動画の方が良さが伝わります。曲はリールの作成画面で上昇中のものを選びます。</li>
-    <li><b>③ 広告を試すなら、反応が良かった投稿を「宣伝する」で少額から</b>キャプションには、メニュー・価格・予約方法をはっきり書きます。初回限定の価格があると判断が早くなります。</li>
-    <li><b>④ ときどき、施術中やサロンの日常を出す</b>仕上がり写真だけが続くと、ほかのサロンとの違いが伝わりません。</li>
-  </ul>
+  <ul class="todo"><li><b>① 月に1本は「ネイルの外」のお役立ちを出す</b>写真の撮り方、長持ちさせるコツ、ハンドケア。サロンに来たことがない人にも届きます。</li><li><b>② 光るデザインは、曲を先に決めてから撮る</b>リールの作成画面で上昇中の曲を選び、曲名や歌詞とデザインが掛かると、さらに覚えてもらえます。</li><li><b>③ 自分の経歴やこだわりを、1本のリールにする</b>開業のきっかけ、資格の取り方、大事にしていること。人柄が伝わる投稿は、予約の後押しになります。</li><li><b>④ 広告を使うなら、地名と「誰向けか」を1枚目に</b>「〇〇駅徒歩3分」「短い爪でも映える」。キャプションには価格と予約方法をはっきり書きます。</li></ul>
 </section>
 
-<section>
+<section style="display:grid;gap:16px">
   <h2><small>METHOD</small>調べ方と、わかっていないこと</h2>
-  <ul class="method">
-    <li>Instagramの検索(ネイルサロン 自宅、プライベートネイルサロン、地域名+ネイルサロンなど)から候補を選び、Chromeでプロフィールを開いて再生数を読み取りました。全国から無作為に選んだわけではないので、偏りがあります。</li>
-    <li>伸びたリールを開いて、いいね数とキャプション、動画の最初の画面を確認しました。いいね数を非表示にしている投稿もあり、一部の数字は取れていません。</li>
-    <li><b>広告として配信されたかどうかは、画面からはわかりません。</b>「宣伝型」と書いているのは、キャプションの文面といいね率の低さからの推測です。</li>
-    <li>投稿日は、リールのIDから計算した日付です。</li>
-  </ul>
+  <ul class="method"><li>ネイルサロン61店。前回の9店も含みます。</li><li>Instagramの検索から候補を集め、Chromeでプロフィールのリール一覧を開いて、直近12〜15本の再生数を読み取りました。全国から無作為に選んだわけではないので、検索に出やすいアカウントに偏っています。</li><li>リールが6本未満のアカウント、フォロワー5万人以上のアカウント、プロフィールにブロガー・講師・スクール・コンサル・株式会社などとあるアカウント、お店やサロンではないアカウントは外しました。</li><li><b>広告として配信されたかどうかは、画面からはわかりません。</b>「宣伝型」と書いているのは、キャプションの文面(地名・価格・初回割引・オープン告知)と、いいね率の低さ(おおむね0.3%未満)からの推測です。</li><li>いいね数を非表示にしている投稿も多く、その場合はいいね率を出していません。画面から読み取った数字のため、多少ずれている可能性があります。</li><li>投稿日はリールのIDから計算した日付です。調べている途中でInstagramの表示制限がかかり、一部のアカウントは読み取れませんでした。</li></ul>
 </section>
 
 </div>
-
-<script>
-const accts=[
-  {n:"momo.nail",id:"masako__momo.nail",area:"神奈川・戸塚",f:710,med:1510,top:60000,note:'<span class="chip warn">宣伝型</span> 3万超えが2本'},
-  {n:"Guttinail",id:"guttinail_kawasaki",area:"神奈川・川崎",f:2240,med:955,top:59000,note:'<span class="chip warn">宣伝型</span>'},
-  {n:"bio_nail",id:"bio_nail_",area:"愛知・名古屋",f:293,med:684,top:21000,note:'<span class="chip warn">宣伝型</span>'},
-  {n:"m.nail",id:"m.nail1234",area:"神奈川・川崎",f:325,med:723,top:20000,note:'<span class="chip warn">宣伝型</span> 1.7万も'},
-  {n:"tumehapi",id:"tumehapi11",area:"神奈川・大和",f:158,med:307,top:3961,note:'<span class="chip ok">深爪のお悩み</span>'},
-  {n:"mone.",id:"mone.na_il",area:"神奈川・川崎",f:157,med:478,top:3048,note:'<span class="chip ok">サロンの日常</span>'},
-  {n:"ムーブ",id:"minori__nailsalon_move",area:"福岡・久山",f:852,med:910,top:3946,note:'<span class="chip flat">小さな跳ね</span>'},
-  {n:"Rommy",id:"rommy_sui",area:"大阪・京橋",f:3059,med:2670,top:6587,note:'<span class="chip ok">キラキラ手元</span> 安定型'},
-  {n:"heal",id:"heal__nail026",area:"千葉・千葉市",f:234,med:154,top:397,note:'<span class="chip flat">大きな跳ねなし</span>'}
-];
-const reels=[
-  {cls:"",t:"店頭の看板と「戸塚区汲沢・戸塚高校そば」",a:"momo.nail",d:"2025年8月6日",url:"https://www.instagram.com/masako__momo.nail/reel/DNAsCLpJE0f/",v:"6万",l:"72",lr:"0.12%",fr:"85倍",
-   why:["住宅街の一軒家サロンの入口と看板を映し、1枚目に地名と目印を大きく出している。","キャプションは「1番人気 毎月変わる定額ネイル¥6,000〜」から始まり、営業時間、駐車場、予約方法まで書いた宣伝の文面。","フォロワー710人に対して6万回、いいね率0.12%。有料配信の可能性が高い。同じ文面のリールが3.3万回(いいね74)にも届いている。"],tags:["地域名","価格","宣伝型"]},
-  {cls:"",t:"「いつものネイルに飽きちゃった人」ちゅるんマグネット",a:"Guttinail",d:"2026年6月23日",url:"https://www.instagram.com/guttinail_kawasaki/reel/DZ7W9O8TX8O/",v:"5.9万",l:"133",lr:"0.23%",fr:"26倍",
-   why:["光るマグネットネイルの指先に「いつものネイルに飽きちゃった人」のテロップ。見る人を最初の1秒で絞っている。","キャプションは「この動画を見た方限定 通常11,200円が初回7,600円」。広告用の文面そのもの。","いつもの再生数は約1千回なので、約60倍。"],tags:["呼びかけ","初回割引","宣伝型"]},
-  {cls:"",t:"「川崎市中原区 大人女性のためのシンプル専門 自宅ネイルサロン」",a:"m.nail",d:"2026年6月12日",url:"https://www.instagram.com/m.nail1234/reel/DZdvZz0y0e3/",v:"1.7万",l:"45",lr:"0.26%",fr:"52倍",
-   why:["ツヤのある指先に、地名と「誰向けのサロンか」を重ねたテロップ。","キャプションは「派手なネイルは苦手」「爪が割れやすい、短い」などのチェックリスト。当てはまる人が止まる作り。","店主が「40代以降の方、自律神経乱れてませんか?」と自分の言葉で話しかけていて、人柄も伝わる。"],tags:["地域名","お悩みチェック","宣伝型"]},
-  {cls:"",t:"ナチュラルコース New Design ¥5,900",a:"bio_nail",d:"2025年10月19日",url:"https://www.instagram.com/bio_nail_/reel/DP_C6eeESbq/",v:"2.1万",l:"10",lr:"0.05%",fr:"72倍",
-   why:["キャプションはコース名と価格、ハッシュタグだけ。","2.1万回に対していいね10件。今回調べた中で一番いいね率が低い。","同じサロンの「持ち込みデザインOK」のリールも1万回でいいね13件。どちらも有料配信の可能性が高い。"],tags:["価格","宣伝型"]},
-  {cls:"",t:"深爪・巻き爪に悩む人へ、サロンの中を見せる",a:"tumehapi",d:"2025年12月20日",url:"https://www.instagram.com/tumehapi11/reel/DSeqhSQknAL/",v:"3,961",l:"19",lr:"0.48%",fr:"25倍",
-   why:["施術スペースをゆっくり映す、落ち着いた動画。","キャプションは「爪に悩んできたすべての方へ」。深爪、噛み爪、巻き爪など、悩みの名前をはっきり書いている。","いつもは300回前後のサロンで13倍。悩みに絞った専門サロンは、刺さる人が明確。"],tags:["お悩み","専門性"]},
-  {cls:"",t:"パウダーとストーンが光る、ちゅるんネイル",a:"Rommy",d:"2026年1月13日",url:"https://www.instagram.com/rommy_sui/reel/DTc6cTLFKkV/",v:"6,587",l:"44",lr:"0.67%",fr:"2.2倍",
-   why:["キラキラのストーンが光る指先を、手を動かしながら撮っている。","音源はオリヴィア・ディーンの流行り曲。","いいね率0.67%は、今回のネイルの中で一番高い。広告ではなく自然に届いた可能性が高い1本。"],tags:["キラキラ手元","流行りの曲"]},
-  {cls:"",t:"「Salon work」1周年くじ引き企画",a:"mone.",d:"2026年10月9日",url:"https://www.instagram.com/mone.na_il/reel/DeRmagyp3u7/",v:"3,048",l:"非表示",lr:"—",fr:"19倍",
-   why:["ネイリストが施術している様子に「Salon work」の文字。デザインではなく、人と空間を見せている。","キャプションは1周年のくじ引きプレゼント企画。リピーターへの感謝が中心。","コメント4件、リポスト3件。フォロワー157人のサロンとしては反応が多い。"],tags:["サロンの日常","イベント"]}
-];
-const special=null, flat=null;
-const fmtN=v=>v>=10000?(Math.round(v/1000)/10)+'万':v.toLocaleString('ja-JP');
-document.getElementById('acct-rows').innerHTML=accts.map(a=>{
-  const m=a.top/a.med, fr=a.top/a.f;
-  const r=v=>v>=10?Math.round(v):Math.round(v*10)/10;
-  return `<tr><td>${a.n}<br><span class="acct">@${a.id} · ${a.area}</span></td><td class="num">${fmtN(a.f)}</td><td class="num">約${fmtN(a.med)}</td><td class="num">${fmtN(a.top)}</td><td class="num"><b>${r(m)}倍</b></td><td class="num">${r(fr)}倍</td><td class="note">${a.note}</td></tr>`}).join('');
-
-(function(){
-  const svg=document.getElementById('mult'), ns='http://www.w3.org/2000/svg';
-  const data=accts.map(a=>({n:a.n,m:a.top/a.med,id:a.id})).sort((a,b)=>b.m-a.m);
-  const L=170,R=600,T=20,rowH=34,hi=Math.log10(200);
-  const x=v=>L+Math.log10(v)/hi*(R-L);
-  const el=(t,at,txt)=>{const e=document.createElementNS(ns,t);for(const k in at)e.setAttribute(k,at[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e};
-  const H=T+data.length*rowH+30; svg.setAttribute('viewBox',`0 0 640 ${H}`);
-  [1,2,5,10,20,50,100,200].forEach(t=>{
-    el('line',{x1:x(t),x2:x(t),y1:T-6,y2:T+data.length*rowH,stroke:'var(--line)','stroke-width':t===1||t===10||t===100?1.2:.6});
-    el('text',{x:x(t),y:T+data.length*rowH+18,'text-anchor':'middle','font-size':12,fill:'var(--muted)','font-family':'Noto Sans JP, sans-serif'},t+'倍');
-  });
-  data.forEach((d,i)=>{
-    const y=T+i*rowH;
-    const col=d.id==='udonya_jin'?'var(--warn)':(d.m>=5?'var(--ai)':'var(--muted)');
-    el('text',{x:L-10,y:y+rowH/2+4,'text-anchor':'end','font-size':13.5,fill:'var(--ink)'},d.n);
-    el('rect',{x:L,y:y+7,width:Math.max(2,x(d.m)-L),height:rowH-14,rx:3,fill:col,opacity:d.id==='udonya_jin'?.6:.9});
-    const lbl=(d.m>=10?Math.round(d.m):d.m.toFixed(1))+'倍';
-    const inside=x(d.m)>R-40;
-    el('text',{x:inside?x(d.m)-6:x(d.m)+6,y:y+rowH/2+4,'text-anchor':inside?'end':'start','font-size':13,fill:inside?'var(--surface)':'var(--ink)','font-family':'Noto Sans JP, sans-serif'},lbl);
-  });
-})();
-
-const stat=(k,label,val,hl)=>`<div class="stat${hl?' hl':''}"><span>${label}</span><strong>${val}</strong></div>`;
-const card=r=>`<article class="reel ${r.cls}">
-  <div class="reel-head"><h3>${r.t}</h3><span class="meta">${r.a} · ${r.d}</span></div>
-  <div class="stats">${stat('v','再生',r.v)}${stat('fr','フォロワー比',r.fr,true)}${stat('l','いいね',r.l)}${stat('lr','いいね率',r.lr)}</div>
-  <ul class="why">${r.why.map(w=>`<li>${w}</li>`).join('')}</ul>
-  <div class="tags">${r.cls==='special'?'<span class="chip warn">再現できない例</span>':r.cls==='flat'?'<span class="chip flat">伸びない例</span>':r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}<a href="${r.url}" target="_blank" rel="noopener" style="margin-left:auto;font-size:13px">投稿を見る</a></div>
-</article>`;
-document.getElementById('reels').innerHTML=reels.map(card).join('')+[special,flat].filter(Boolean).map(card).join('');
-</script>
